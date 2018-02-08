@@ -8,19 +8,13 @@ export default class Player extends Component {
     this.state = {played: 0};
     this.state = {duration: 0};
     this.state = {played: null};
-    this.state = {songUrl: 'https://www.youtube.com/watch?v=kfchvCyHmsc'};
+    this.state = {songUrl:null};
   };
 
 
-  onReady = () => {
-  	console.log(this.props.song)
-
-  }
-
 	onDuration = (duration) => {
     this.setState({ duration })
-    //console.log(this.props.song)
-  }
+  };
 
   onProgress = (playedSeconds) => {
   	const duration = this.state.duration;
@@ -34,6 +28,11 @@ export default class Player extends Component {
     	})
     	//console.log(this.props.songs.url);
     }
+  };
+
+  playFirstSong = () => {
+  	console.log(this.props.song)
+  	this.setState({songUrl: 'https://www.youtube.com/watch?v=kfchvCyHmsc'})
   }
   
 
@@ -42,16 +41,13 @@ export default class Player extends Component {
 
     return (
     	<div>
-
-
     		<ReactPlayer
 					url= {songUrl}
 					playing
 					onDuration={this.onDuration}
 					onProgress={this.onProgress}
-					onReady={this.onReady}
 				/>
-				<h4>{duration}</h4>
+				<button type="button" onClick={this.playFirstSong}>ver</button>
     	</div>
     	
     	)
