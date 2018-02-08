@@ -4,8 +4,7 @@ import ReactPlayer from 'react-player';
 export default class Player extends Component {
 	constructor(props) {
     super(props);
-    this.state = {muted: false};
-    this.state = {played: 0};
+    this.state = {muted: true};
     this.state = {duration: 0};
     this.state = {played: null};
     this.state = {songUrl:null};
@@ -26,13 +25,12 @@ export default class Player extends Component {
     	this.setState({
     		songUrl: 'https://www.youtube.com/watch?v=XqqWiA-WZs8'
     	})
-    	//console.log(this.props.songs.url);
     }
   };
 
   playFirstSong = () => {
-  	console.log(this.props.song)
-  	this.setState({songUrl: 'https://www.youtube.com/watch?v=kfchvCyHmsc'})
+  	const songUrl = this.props.song.url;
+  	this.setState({songUrl})
   }
   
 
@@ -47,7 +45,12 @@ export default class Player extends Component {
 					onDuration={this.onDuration}
 					onProgress={this.onProgress}
 				/>
-				<button type="button" onClick={this.playFirstSong}>ver</button>
+				{songUrl ?
+					null
+					:
+					<button type="button" onClick={this.playFirstSong}>Comenzar</button>
+				}
+				
     	</div>
     	
     	)

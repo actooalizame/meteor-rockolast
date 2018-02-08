@@ -4,8 +4,7 @@ import {Songs}  from '../api/songs';
 import Player from './Player';
 
 export default createContainer(() => {
-  Meteor.subscribe('songs');
-  //const loading = !subscription.ready();
+  Meteor.subscribe('winnerSong');
   const song = Songs.findOne();
 
   return { song };
