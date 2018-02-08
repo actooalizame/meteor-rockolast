@@ -5,27 +5,16 @@ export default class Player extends Component {
 	constructor(props) {
     super(props);
     this.state = {muted: true};
-    this.state = {duration: 0};
-    this.state = {played: null};
     this.state = {songUrl:null};
   };
 
-
-	onDuration = (duration) => {
-    this.setState({ duration })
-  };
-
-  onProgress = (playedSeconds) => {
-  	const duration = this.state.duration;
-
-  	let played = Math.floor(playedSeconds.playedSeconds);
-	  this.setState({played})
-    let remaining = duration - played;
-    if(remaining===2){
-    	this.setState({
-    		songUrl: 'https://www.youtube.com/watch?v=XqqWiA-WZs8'
-    	})
-    }
+  onEnded = () => {
+    const songId = this.props.song._id;
+    const status = "done";
+    Meteor.call('changeStatus', songId, status);
+    this.setState({
+        songUrl: this.props.coming.url
+      })
   };
 
   playFirstSong = () => {
@@ -35,15 +24,14 @@ export default class Player extends Component {
   
 
   render () {
-  	const { duration,songUrl } = this.state;
+  	const { songUrl } = this.state;
 
     return (
     	<div>
     		<ReactPlayer
 					url= {songUrl}
 					playing
-					onDuration={this.onDuration}
-					onProgress={this.onProgress}
+          onEnded={this.onEnded}
 				/>
 				{songUrl ?
 					null
