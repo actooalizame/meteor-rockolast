@@ -20,13 +20,5 @@ Meteor.methods({
         votes: 0
       }
     });
-  },
-  resetVotes(songId) {
-    check(songId, String);
-    Songs.update(songId, {
-      $set: {
-        votes: 0,
-      }
-    });
   }
 });

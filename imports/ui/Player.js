@@ -4,7 +4,6 @@ import ReactPlayer from 'react-player';
 export default class Player extends Component {
 	constructor(props) {
     super(props);
-    this.state = {muted: true};
     this.state = {songUrl:null};
   };
 
@@ -21,7 +20,6 @@ export default class Player extends Component {
   	const songUrl = this.props.song.url;
   	this.setState({songUrl})
   }
-  
 
   render () {
   	const { songUrl } = this.state;
@@ -38,11 +36,8 @@ export default class Player extends Component {
 					:
 					<button type="button" onClick={this.playFirstSong}>Comenzar</button>
 				}
-				
     	</div>
-    	
     	)
-    	
   }
 
 }

@@ -6,10 +6,10 @@ Meteor.startup(function(){
     let timestamp = (new Date()).getTime();
     
     Songs.insert({
-      url: 'https://www.youtube.com/watch?v=j_kKMtPcYuQ' ,
+      url: 'https://www.youtube.com/watch?v=jN6haHYehg8' ,
       createdAt: new Date(timestamp),
       status: 'idle',
-      votes: 5
+      votes: 9
     });
     
   }
