@@ -5,8 +5,8 @@ import Player from './Player';
 
 export default createContainer(() => {
   Meteor.subscribe('songs.allIdle');
-  const song = Songs.findOne({status:'idle'});
-  const coming = Songs.find({status:'idle'}, {sort: {votes: -1}, limit: 2}).fetch().pop();
+  const song = Songs.findOne({status:'idle',playing:false}, {sort: {votes: -1}});
+  const coming = Songs.find({status:'idle',playing:false}, {sort: {votes: -1}, limit: 1}).fetch().pop();
   return {
     song,
     coming
