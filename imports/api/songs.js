@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 
 export const Songs = new Mongo.Collection('songs');
+export const CurrentSongs = new Mongo.Collection('currentSongs');
 
 if (Meteor.isServer){
 	Meteor.publish('songs.allIdle', () => {
@@ -10,6 +11,9 @@ if (Meteor.isServer){
 	});
   Meteor.publish('songs.allDone', () => {
     return Songs.find({status:'done'})
+  });
+   Meteor.publish('currentSongs.playing', () => {
+    return CurrentSongs.find({}, {sort: {createdAt: -1}, limit: 1})
   });
 }
 
@@ -39,4 +43,11 @@ Meteor.methods({
     });
   },
   
+  'newPlayedSong': function(nextData){
+    let timestamp = (new Date()).getTime();
+    CurrentSongs.insert({
+      name: nextData.name,
+      createdAt: new Date(timestamp)
+    });
+  },
 });

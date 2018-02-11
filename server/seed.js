@@ -6,12 +6,12 @@ Meteor.startup(function(){
     let timestamp = (new Date()).getTime();
     
     Songs.insert({
-    	name: 'Gato huevo',
+    	name: 'Bloopers Comp',
 artist: 'Bob Dylan',
-album: 'New Morning',
-year: '1970',
-url: 'https://www.youtube.com/watch?v=wNPLrzqOG_A' ,
-picture: 'https://cdn-s3.allmusic.com/release-covers/500/0000/102/0000102656.jpg',
+album: 'Highway 61 Revisited',
+year: '1965',
+url: 'https://www.youtube.com/watch?v=uth-8cr4XFc' ,
+picture: 'https://kxci.org/wp-content/uploads/2015/08/Bob_Dylan_-_Highway_61_Revisited.jpg',
 createdAt: new Date(timestamp),
 status: 'idle',
 votes: 0
