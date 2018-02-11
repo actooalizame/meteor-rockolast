@@ -17,7 +17,6 @@ export default class Player extends Component {
 
   onEnded = () => {
     const songId = this.props.song._id;
-    const comingId = this.props.com
     const status = "done";
     Meteor.call('changeStatus', songId, status);
     this.setState({
