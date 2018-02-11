@@ -2,7 +2,7 @@ import {Meteor} from 'meteor/meteor';
 import {Songs} from '../imports/api/songs';
 
 Meteor.startup(function(){
-	if (Songs.find().count() === 3	) {
+	if (Songs.find().count()  === 0	) {
     let timestamp = (new Date()).getTime();
     
     Songs.insert({
