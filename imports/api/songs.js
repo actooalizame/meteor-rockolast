@@ -47,6 +47,11 @@ Meteor.methods({
     let timestamp = (new Date()).getTime();
     CurrentSongs.insert({
       name: nextData.name,
+      artist: nextData.artist,
+      album: nextData.album,
+      year: nextData.year,
+      picture: nextData.picture,
+      votes: nextData.votes,
       createdAt: new Date(timestamp)
     });
   },
