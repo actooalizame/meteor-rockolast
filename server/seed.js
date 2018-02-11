@@ -2,20 +2,19 @@ import {Meteor} from 'meteor/meteor';
 import {Songs} from '../imports/api/songs';
 
 Meteor.startup(function(){
-	if (Songs.find().count() === 5	) {
+	if (Songs.find().count() === 3	) {
     let timestamp = (new Date()).getTime();
     
     Songs.insert({
-    	name: 'Dont Cry',
-artist: 'Guns N Roses',
-album: 'Use Your Illusion I',
-year: '1991',
-url: 'https://www.youtube.com/watch?v=zRIbf6JqkNc',
-picture: 'https://static1.squarespace.com/static/54481c8fe4b0a9431d5d27fe/t/57adf18e20099e7a10ae56e9/1471017360936/',
+    	name: 'Gato huevo',
+artist: 'Bob Dylan',
+album: 'New Morning',
+year: '1970',
+url: 'https://www.youtube.com/watch?v=wNPLrzqOG_A' ,
+picture: 'https://cdn-s3.allmusic.com/release-covers/500/0000/102/0000102656.jpg',
 createdAt: new Date(timestamp),
 status: 'idle',
-votes: 0,
-playing: false
+votes: 0
     });
     
   }

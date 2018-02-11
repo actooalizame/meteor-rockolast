@@ -8,25 +8,18 @@ if (Meteor.isServer){
 	Meteor.publish('songs.allIdle', () => {
 	  return Songs.find({status:'idle'})
 	});
+  Meteor.publish('songs.allDone', () => {
+    return Songs.find({status:'done'})
+  });
 }
 
 Meteor.methods({
-  changeStatus(songId, status) {
+  beginPlaying(songId,status) {
     check(songId, String);
-    check(status, String);
     Songs.update(songId, {
       $set: {
         status,
-        votes: 0,
-        playing: false
-      }
-    });
-  },
-  beginPlaying(songId) {
-    check(songId, String);
-    Songs.update(songId, {
-      $set: {
-        playing: true
+        //playing: true
       }
     });
   },
@@ -36,4 +29,14 @@ Meteor.methods({
       { $inc: { votes: 1} }
     );
   },
+  changeStatus(songId, status) {
+    check(songId, String);
+    check(status, String);
+    Songs.update(songId, {
+      $set: {
+        status,
+      }
+    });
+  },
+  
 });

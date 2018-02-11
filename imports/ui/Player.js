@@ -9,14 +9,15 @@ export default class Player extends Component {
 
   onStart  = () => {
     const songId = this.props.song._id;
-    Meteor.call('beginPlaying', songId);
-    /*this.setState({
-        songUrl: this.props.coming.url
-      })*/
+    const status = 'playing'
+    Meteor.call('changeStatus',songId,status);
   };
+
+
 
   onEnded = () => {
     const songId = this.props.song._id;
+    const comingId = this.props.com
     const status = "done";
     Meteor.call('changeStatus', songId, status);
     this.setState({
@@ -25,15 +26,12 @@ export default class Player extends Component {
   };
 
   playFirstSong = () => {
-  	const songUrl = this.props.song.url,
-          songId = this.props.song._id;
+  	const songUrl = this.props.song.url;
   	this.setState({songUrl});
-    //Meteor.call('beginPlaying', songId);
   }
 
   render () {
   	const { songUrl } = this.state;
-
     return (
     	<div>
     		<ReactPlayer
@@ -41,6 +39,7 @@ export default class Player extends Component {
 					playing
           onStart={this.onStart}
           onEnded={this.onEnded}
+
 				/>
 				{songUrl ?
 					songUrl
