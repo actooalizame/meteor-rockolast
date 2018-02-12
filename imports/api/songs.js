@@ -15,6 +15,9 @@ if (Meteor.isServer){
    Meteor.publish('currentSongs.playing', () => {
     return CurrentSongs.find({}, {sort: {createdAt: -1}, limit: 1})
   });
+   Meteor.publish('currentSongs.limited', () => {
+    return CurrentSongs.find({}, {fields:{_id:1,name:1}}, {sort: {createdAt: -1}, limit: 1})
+  });
 }
 
 Meteor.methods({
@@ -23,7 +26,6 @@ Meteor.methods({
     Songs.update(songId, {
       $set: {
         status,
-        //playing: true
       }
     });
   },

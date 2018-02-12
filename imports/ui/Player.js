@@ -11,6 +11,15 @@ export default class Player extends Component {
     const songId = this.props.song._id;
     const status = 'done'
     Meteor.call('changeStatus',songId,status);
+    let nextData = {
+      name: this.props.song.name,
+      artist: this.props.song.artist,
+      album: this.props.song.album,
+      year: this.props.song.year,
+      picture: this.props.song.picture,
+      votes: this.props.song.votes
+    }
+    Meteor.call('newPlayedSong', nextData);
   };
 
 
