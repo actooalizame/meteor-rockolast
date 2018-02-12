@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+       "MONGO_URL": "mongodb://rockola:Pass109@ds231658.mlab.com:31658/rockola"
+     }
+   }
+}

@@ -9,7 +9,7 @@ export default class Player extends Component {
 
   onStart  = () => {
     const songId = this.props.song._id;
-    const status = 'playing'
+    const status = 'done'
     Meteor.call('changeStatus',songId,status);
   };
 

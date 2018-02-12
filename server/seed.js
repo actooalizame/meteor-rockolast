@@ -1,21 +1,36 @@
 import {Meteor} from 'meteor/meteor';
 import {Songs} from '../imports/api/songs';
 
-Meteor.startup(function(){
-	if (Songs.find().count() === 2	) {
+/*Meteor.startup(function(){
+	/*if (Songs.find().count() === 0	) {
     let timestamp = (new Date()).getTime();
     
     Songs.insert({
-    	name: 'Bloopers Comp',
-artist: 'Bob Dylan',
-album: 'Highway 61 Revisited',
-year: '1965',
-url: 'https://www.youtube.com/watch?v=uth-8cr4XFc' ,
-picture: 'https://kxci.org/wp-content/uploads/2015/08/Bob_Dylan_-_Highway_61_Revisited.jpg',
+    	name: 'Dont Cry',
+artist: 'Guns N Roses',
+album: 'Use Your Illusion I',
+year: '1991',
+url: 'https://www.youtube.com/watch?v=zRIbf6JqkNc',
+picture: 'https://static1.squarespace.com/static/54481c8fe4b0a9431d5d27fe/t/57adf18e20099e7a10ae56e9/1471017360936/',
 createdAt: new Date(timestamp),
 status: 'idle',
 votes: 0
     });
-    
+  }
+  if (Songs.find({}).count() == 1) {
+    var data = JSON.parse(Assets.getText('songs.json'));
+    data.forEach(function (item, index, array) {
+          Songs.insert(item);
+      });
+  	}
+	});
+});*/
+
+Meteor.startup(function () {
+  if (Songs.find({}).count() == 1) {
+    var data = JSON.parse(Assets.getText('songs.json'));
+      data.forEach(function (item, index, array) {
+            Songs.insert(item);
+        });
   }
 });
