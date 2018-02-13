@@ -1,6 +1,8 @@
 import {Mongo} from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { ValidatedMethod } from 'meteor/mdg:validated-method';
+
 
 export const Songs = new Mongo.Collection('songs');
 export const CurrentSongs = new Mongo.Collection('currentSongs');
@@ -20,21 +22,54 @@ if (Meteor.isServer){
   });
 }
 
+export const beginPlaying = new ValidatedMethod({
+  name: 'beginPlaying', // DDP method name
+  //mixins, // Method extensions
+  validate: null, // argument validation
+  //applyOptions, // options passed to Meteor.apply
+  run ({songId,status}) {
+    Songs.update(songId, {
+      $set: {
+        status: status
+      }
+    });
+    if (Meteor.isServer){
+      console.log(this.connection.clientAddress);
+    }
+  }
+});
+
+export const voteSong = new ValidatedMethod({
+  name: 'voteSong', // DDP method name
+  //mixins, // Method extensions
+  validate: null, // argument validation
+  //applyOptions, // options passed to Meteor.apply
+  run ({selectedSongId}) {
+    Songs.update(
+      { _id: selectedSongId },
+      { $inc: { votes: 1} }
+    );
+    if (Meteor.isServer){
+      console.log(this.connection.clientAddress);
+    }
+  }
+});
+
 Meteor.methods({
-  beginPlaying(songId,status) {
+  /*beginPlaying(songId,status) {
     check(songId, String);
     Songs.update(songId, {
       $set: {
         status,
       }
     });
-  },
-  'voteSong': function(selectedSongId){
+  },*/
+  /*'voteSong': function(selectedSongId){
     Songs.update(
       { _id: selectedSongId },
       { $inc: { votes: 1} }
     );
-  },
+  },*/
   changeStatus(songId, status) {
     check(songId, String);
     check(status, String);

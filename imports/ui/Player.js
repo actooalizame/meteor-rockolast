@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 
+import {beginPlaying} from '../api/songs';
+
 export default class Player extends Component {
 	constructor(props) {
     super(props);
@@ -9,8 +11,14 @@ export default class Player extends Component {
 
   onStart  = () => {
     const songId = this.props.song._id;
-    const status = 'done'
-    Meteor.call('changeStatus',songId,status);
+    
+    /*Meteor.call('beginPlaying',songId,"done", (err, res) => {
+    if (err) {
+      console.log(err);
+      }
+    });*/
+    const status = "done";
+    beginPlaying.call({songId,status});
     let nextData = {
       name: this.props.song.name,
       artist: this.props.song.artist,
