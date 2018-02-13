@@ -6,7 +6,8 @@
     "url": "https://www.youtube.com/watch?v=4q9UafsiQ6k",
     "picture": "http://www.grayflannelsuit.net/blog/wp-content/uploads/2011/01/Pearl-Jam-Ten.jpg",
     "status": "idle",
-    "votes": 0
+    "votes": 0,
+    "votedBy": []
 },
 {
     "name": "Sick Bubblegum",
@@ -16,7 +17,8 @@
     "url": "https://www.youtube.com/watch?v=AeUwikDrA9I",
     "picture": "https://upload.wikimedia.org/wikipedia/en/f/f6/Rob_zombie_sick_bubblegum.png",
     "status": "idle",
-    "votes": 0
+    "votes": 0,
+    "votedBy": []
 },
 {
     "name": "Black Ice",
@@ -26,7 +28,8 @@
     "url": "https://www.youtube.com/watch?v=ruBZEJuUmjc",
     "picture": "https://upload.wikimedia.org/wikipedia/en/3/3e/Black_ice_red.jpg",
     "status": "idle",
-    "votes": 0
+    "votes": 0,
+    "votedBy": []
 },
 {
     "name": "Madness",
@@ -36,7 +39,8 @@
     "url": "https://www.youtube.com/watch?v=6w5KCf8hXvo",
     "picture": "https://upload.wikimedia.org/wikipedia/en/9/9b/Muse_-_Madness.jpg",
     "status": "idle",
-    "votes": 0
+    "votes": 0,
+    "votedBy": []
 },
 {
     "name": "Without Me",
@@ -46,7 +50,8 @@
     "url": "https://www.youtube.com/watch?v=YVkUvmDQ3HY",
     "picture": "https://upload.wikimedia.org/wikipedia/en/a/ad/Eminem_-_Without_Me_CD_cover.jpg",
     "status": "idle",
-    "votes": 0
+    "votes": 0,
+    "votedBy": []
 },
 {
     "name": "King Nothing",
@@ -56,5 +61,6 @@
     "url": "https://www.youtube.com/watch?v=oFBbOHohwR8",
     "picture": "https://upload.wikimedia.org/wikipedia/en/3/3d/Metallica_-_King_Nothing_cover.jpg",
     "status": "idle",
-    "votes": 0
+    "votes": 0,
+    "votedBy": []
 }]

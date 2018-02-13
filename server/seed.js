@@ -3,7 +3,7 @@ import {Songs} from '../imports/api/songs';
 import {CurrentSongs} from '../imports/api/songs';
 
 Meteor.startup(function () {
-  if (Songs.find({}).count() === 0) {
+  if (Songs.find({}).count() == 0) {
     var data = JSON.parse(Assets.getText('songs-2.json'));
       data.forEach(function (item, index, array) {
             Songs.insert(item);

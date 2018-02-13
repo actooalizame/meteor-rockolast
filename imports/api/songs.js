@@ -44,18 +44,42 @@ export const voteSong = new ValidatedMethod({
   //mixins, // Method extensions
   validate: null, // argument validation
   //applyOptions, // options passed to Meteor.apply
+  
+    run ({selectedSongId}) {
+      Songs.update(
+        { _id: selectedSongId },
+        { $inc: { votes: 1},$push: { ratedBy: this.connection.clientAddress} },
+        //{ $push: { ratedBy: this.connection.clientAddress} }
+      );
+      /*if (Meteor.isServer){
+        console.log(this.connection.clientAddress);
+      }*/
+    }
+ 
+});
+
+/*export const upvotedBy = new ValidatedMethod({
+  name: 'upvotedBy', // DDP method name
+  //mixins, // Method extensions
+  validate: null, // argument validation
+  //applyOptions, // options passed to Meteor.apply
   run ({selectedSongId}) {
     Songs.update(
       { _id: selectedSongId },
-      { $inc: { votes: 1} }
+      { $push: { ratedBy: this.connection.clientAddress} }
     );
-    if (Meteor.isServer){
-      console.log(this.connection.clientAddress);
-    }
   }
-});
+});*/
 
 Meteor.methods({
+
+  /*'addProfRatedBy': function(professorId, userId){
+    Professors.update(
+      { _id: professorId },
+      {$push: {ratedBy: userId} }
+    );
+  },*/
+
   /*beginPlaying(songId,status) {
     check(songId, String);
     Songs.update(songId, {
