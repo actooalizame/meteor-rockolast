@@ -48,28 +48,13 @@ export const voteSong = new ValidatedMethod({
     run ({selectedSongId}) {
       Songs.update(
         { _id: selectedSongId },
-        { $inc: { votes: 1},$push: { ratedBy: this.connection.clientAddress} },
+        { $inc: { votes: 1},$push: { votedBy: this.connection.clientAddress} },
         //{ $push: { ratedBy: this.connection.clientAddress} }
       );
-      /*if (Meteor.isServer){
-        console.log(this.connection.clientAddress);
-      }*/
     }
  
 });
 
-/*export const upvotedBy = new ValidatedMethod({
-  name: 'upvotedBy', // DDP method name
-  //mixins, // Method extensions
-  validate: null, // argument validation
-  //applyOptions, // options passed to Meteor.apply
-  run ({selectedSongId}) {
-    Songs.update(
-      { _id: selectedSongId },
-      { $push: { ratedBy: this.connection.clientAddress} }
-    );
-  }
-});*/
 
 Meteor.methods({
 
