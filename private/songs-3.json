@@ -1,0 +1,66 @@
+[{
+    "name": "Faith",
+    "artist": "George Michael",
+    "album": "Ten",
+    "year": "1987",
+    "url": "https://www.youtube.com/watch?v=6Cs3Pvmmv0E",
+    "picture": "https://upload.wikimedia.org/wikipedia/en/c/cc/Faith_-_George_Michael_-_CD_Single.jpg",
+    "status": "idle",
+    "votes": 0,
+    "votedBy": []
+},
+{
+    "name": "The Rabbit",
+    "artist": "Miike Snow",
+    "album": "Miike Snow",
+    "year": "2009",
+    "url": "https://www.youtube.com/watch?v=tYQyZFZN2bg",
+    "picture": "https://upload.wikimedia.org/wikipedia/en/f/f6/Rob_zombie_sick_bubblegum.png",
+    "status": "idle",
+    "votes": 0,
+    "votedBy": []
+},
+{
+    "name": "Wrong",
+    "artist": "Depeche Mode",
+    "album": "Sounds of the Universe",
+    "year": "2000",
+    "url": "https://www.youtube.com/watch?v=EHrBZVG0vvU",
+    "picture": "https://upload.wikimedia.org/wikipedia/en/b/b2/Wrong_Single_Cover.jpg",
+    "status": "idle",
+    "votes": 0,
+    "votedBy": []
+},
+{
+    "name": "Everything",
+    "artist": "INXS",
+    "album": "Elegantly Wasted",
+    "year": "1997",
+    "url": "https://www.youtube.com/watch?v=VFRaCgN8l-c",
+    "picture": "https://upload.wikimedia.org/wikipedia/en/2/22/INXS_Elegantly_Wasted.jpg",
+    "status": "idle",
+    "votes": 0,
+    "votedBy": []
+},
+{
+    "name": "BeetleBum",
+    "artist": "Blur",
+    "album": "Blur",
+    "year": "1997",
+    "url": "https://www.youtube.com/watch?v=WAXnqjUfal4",
+    "picture": "http://digitalspyuk.cdnds.net/15/17/480x480/gallery_blur-song-2.jpg",
+    "status": "idle",
+    "votes": 0,
+    "votedBy": []
+},
+{
+    "name": "Take Your Mama",
+    "artist": "Scissor Sisters",
+    "album": "Scissor Sisters",
+    "year": "2004",
+    "url": "https://www.youtube.com/watch?v=od7-fyGa9DQ",
+    "picture": "https://upload.wikimedia.org/wikipedia/en/b/b2/Take_Your_Mama.jpg",
+    "status": "idle",
+    "votes": 0,
+    "votedBy": []
+}]
