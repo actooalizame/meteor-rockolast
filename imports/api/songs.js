@@ -33,9 +33,12 @@ export const beginPlaying = new ValidatedMethod({
         status: status
       }
     });
-    if (Meteor.isServer){
-      console.log(this.connection.clientAddress);
-    }
+
+   /* if (Meteor.isServer){
+      var res = HTTP.get('http://freegeoip.net/json/?callback=?');
+      console.log(res.ip); // Public IP (of server)
+      console.log(this.connection.httpHeaders['x-forwarded-for']);
+    }*/
   }
 });
 
@@ -48,7 +51,7 @@ export const voteSong = new ValidatedMethod({
     run ({selectedSongId}) {
       Songs.update(
         { _id: selectedSongId },
-        { $inc: { votes: 1},$addToSet: { votedBy: this.connection.clientAddress} },
+        { $inc: { votes: 1},$addToSet: { votedBy: this.connection.httpHeaders['x-forwarded-for']} },
         //{ $push: { ratedBy: this.connection.clientAddress} }
       );
     }
