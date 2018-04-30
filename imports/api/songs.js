@@ -38,7 +38,9 @@ export const beginPlaying = new ValidatedMethod({
   run ({songId,status}) {
     Songs.update(songId, {
       $set: {
-        status: status
+        status: status,
+        votes: -2,
+        votedBy: []
       }
     });
 
@@ -56,10 +58,10 @@ export const voteSong = new ValidatedMethod({
   validate: null, // argument validation
   //applyOptions, // options passed to Meteor.apply
   
-    run ({selectedSongId}) {
+    run ({selectedSongId,ip}) {
       Songs.update(
         { _id: selectedSongId },
-        { $inc: { votes: 1},$addToSet: { votedBy: this.connection.httpHeaders['x-forwarded-for']} },
+        { $inc: { votes: 1},$addToSet: { votedBy: ip} },
         //{ $push: { ratedBy: this.connection.clientAddress} }
       );
     }
@@ -112,6 +114,8 @@ Meteor.methods({
     Songs.update(songId, {
       $set: {
         status,
+        votes: -2,
+        votedBy: []
       }
     });
   },
