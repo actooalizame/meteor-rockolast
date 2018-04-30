@@ -20,6 +20,14 @@ if (Meteor.isServer){
    Meteor.publish('currentSongs.limited', () => {
     return CurrentSongs.find({}, {fields:{_id:1,name:1}}, {sort: {createdAt: -1}, limit: 1})
   });
+
+  CurrentSongs.after.insert(function(){
+    if (CurrentSongs.find().count() > 0 ) {
+      let song = CurrentSongs.findOne({_id: { $ne: this._id } } ),
+          songId = song._id;
+      CurrentSongs.remove(songId);
+    }
+  });
 }
 
 export const beginPlaying = new ValidatedMethod({
